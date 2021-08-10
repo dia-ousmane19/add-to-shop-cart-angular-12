@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="d-flex flex-row">
+            <div class="mx-2">
+                <a href="">All</a>
+
+            </div>
+            <div class="mx-2">
+                <a href="">Electronics</a>
+            </div>
+            <div class="mx-2">
+                <a href="">Fashion</a>
+            </div>
+            <div class="mx-2">
+                <a href="">Fewerley</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of productList">
+            <div class="card" style="width: 18rem;">
+                <img src="{{item.image}}" style="width:200px;height:200px;margin-bottom:15px;transition:0.3s ease-inout" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis">{{item.title}}</h5>
+                    <p class="card-text" style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">{{item.description}}</p>
+                </div>
+                <p><b>price:</b> ${{item.price}}</p>
+                <div class="card-body">
+                    <a (click)="addtocart(item)" class=" btn btn-primary ">add to card</a>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<ng-container *ngIf="products.length !=0">
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">number</th>
+                    <th scope="col">name</th>
+                    <th scope="col">image</th>
+                    <th scope="col">description</th>
+                    <th scope="col">price</th>
+                    <th scope="col">quantity</th>
+                    <th scope="col">total</th>
+                    <th scope="col">action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products; let i = index">
+                    <td scope="row">{{i + 1}}</td>
+                    <td>{{product.title}}</td>
+                    <td> <img style="width: 25%;" src="{{product.image}}" alt=""> </td>
+                    <td>{{product.description}}</td>
+                    <td scope="row">$ {{product.price}}</td>
+                    <td>{{product.quantity}}</td>
+                    <td>{{product.total}}</td>
+                    <td>
+                        <button (click)="removeItem(product)" class="btn btn-danger">
+                            delete
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4"></td>
+                    <td><button (click)="emptyCart()" class="btn btn-sm btn-danger">vider</button></td>
+                    <td><button routerLink="/products" class="btn btn-sm btn-primary">shop more</button></td>
+                    <td><b>grand total: </b> $ {{grandtotal}}</td>
+
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+</ng-container>
+
+
+<ng-container *ngIf="products.length == 0">
+    <div class="container mt-4 text-center">
+        <div class="card">
+            <h5 class="card-header">Panier</h5>
+            <div class="card-body">
+                <h5 class="card-title">Le panier est vide</h5>
+                <p class="card-text">Vous pouvez ajouter des articles</p>
+                <a routerLink="/products" class="btn btn-primary">see more</a>
+            </div>
+        </div>
+    </div>
+
+</ng-container>
